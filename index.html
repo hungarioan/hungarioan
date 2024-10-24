@@ -3,13 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Página Web</title>
+    <title>Prueba de CORS en WordPress</title>
+    <script>
+        function hacerSolicitud() {
+            fetch("https://pecadocity.com/wp-json/wp/v2/users", { // Cambia esto a la URL de tu WordPress
+                method: 'GET',
+                credentials: 'include' // Incluye credenciales si es necesario
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error('Error:', error));
+        }
+    </script>
 </head>
 <body>
-    <h1>Bienvenido a Mi Página Web</h1>
-    <p>Este es un ejemplo de un archivo index.html.</p>
-    <script>
-        console.log('Hola desde JavaScript!');
-    </script>
+    <h1>Prueba de Vulnerabilidad CORS en WordPress</h1>
+    <button onclick="hacerSolicitud()">Hacer Solicitud</button>
 </body>
 </html>
